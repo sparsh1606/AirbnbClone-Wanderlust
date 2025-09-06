@@ -1,0 +1,103 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div id="filters" class="collapse">
+        <div class="filter">
+            <div><i class="fa-solid fa-fire-flame-curved"></i></div>
+            <p>Trending</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-mountain-city"></i></div>
+            <p>Mountains</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-umbrella-beach"></i></div>
+            <p>Beaches</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-house-chimney"></i></div>
+            <p>House</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-building-user"></i></div>
+            <p>Flats</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-person-shelter"></i></div>
+            <p>Rooms</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-hotel"></i></div>
+            <p>Hotel</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-landmark-dome"></i></div>
+            <p>Dome</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p>Amazing Pools</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-campground"></i></div>
+            <p>Camping</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-wheat-awn"></i></div>
+            <p>Farms</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-city"></i></div>
+            <p>Iconic Cities</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p>Hostels</p>
+        </div>
+        <div class="filter">
+            <div><i class="fa-solid fa-ship"></i></div>
+            <p>Boats</p>
+        </div>
+
+
+    </div>
+
+    <div class="container">
+
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+            <% for(let list of allList){ %>
+
+                <div class="col" >
+
+                    <a href="/listings/<%=list._id%>" class="listing-image">
+                        <div class="card card-listing">
+                            <img src="<%= list.image.url %>" class="card-img-top " alt="listing image">
+                            <div class="card-img-overlay"></div>
+                            <div class="card-body">
+                                <p class="card-text">
+                
+                                    <b> <%= list.title %></b>
+                                    <br>
+                                    
+                                    <% if (list.price) { %>
+                                        ₹ <%= list.price.toLocaleString("en-IN") %> / night
+                                    <% } else { %>
+                                        Price not available
+                                    <% } %>
+                
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+                
+            <% } %>
+    
+        </div>
+
+    </div>
+    
+    
+
+</body>
